@@ -1,0 +1,21 @@
+kind: Component
+metadata:
+  description: CatDocs Frontend - Embeds mkdocs documentation in the frontend.
+  system: catcode
+  application: frontend
+  deployableUnit: catdocs
+  tags:
+  - react
+  - website
+  - documentation
+  links:
+  - title: Telemetry
+    icon: grafana
+    url: http://grafana.mw
+  - title: example
+    url: https://www.example.com
+spec:
+  type: frontend-plugin
+  lifecycle: development
+  owner: mw
+

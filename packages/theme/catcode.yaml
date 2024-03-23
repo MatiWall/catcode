@@ -1,0 +1,15 @@
+kind: Component
+metadata:
+  description: CatDocs theme.
+  system: catcode
+  application: frontend
+  deployableUnit: theme
+  tags:
+  - react
+  - website
+  - theme
+spec:
+  type: frontend-plugin
+  lifecycle: development
+  owner: mw
+

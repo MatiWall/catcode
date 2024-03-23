@@ -1,0 +1,14 @@
+kind: Component
+metadata:
+  description: CatDocs Frontend - Embeds mkdocs documentation in the frontend.
+  system: catcode
+  application: frontend
+  deployableUnit: api-tools
+  tags:
+  - react
+  - website
+  - package
+spec:
+  type: frontend-plugin
+  lifecycle: development
+  owner: mw

@@ -1,0 +1,14 @@
+kind: Component
+metadata:
+  description: Catalog Frontend Package
+  system: catcode
+  application: frontend
+  deployableUnit: catalog
+  tags:
+  - react
+  - website
+  - package
+spec:
+  type: frontend-plugin
+  lifecycle: development
+  owner: mw

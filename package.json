@@ -1,0 +1,13 @@
+{
+  "name": "catcode-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": { "packages": ["packages/*", "plugins/*"]},
+  "scripts": {
+    "start": "yarn workspace app start",
+    "build": "yarn workspace app build",
+    "dev": "yarn workspace app dev",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+}
