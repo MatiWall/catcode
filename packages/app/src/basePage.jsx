@@ -1,5 +1,5 @@
 
-import { Container, CssBaseline, Box } from "@mui/material";
+import { Container, CssBaseline, Box, Toolbar } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 
 
@@ -17,28 +17,19 @@ function BasePage() {
 
   return (
     <>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', lexGrow: 1 }}>
         <CssBaseline />
         <NavBar />
         <SideBar />
-        <Container
-          component="main"
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            minHeight: `calc(100vh - ${navbarHeight}px)`,
-            paddingTop: 5 
-          }}
-        >
-          <br />
-          <br />
+        <main style={{width: '100%', flexGrow: 1}}>
+          <Toolbar />
           <Routes>
             <Route path={'/'} element={<HomePage backend_url={BACKEND_URL} dependency_url={DEPENDENCIES_URL}/>} />
             <Route path={'/catalog'} element={<CatalogPage url={BACKEND_URL} />} />
-            <Route path={'/catalog/:system/:application/:deployableUnit'} element={<ApplicationPage backend_url={BACKEND_URL} dependency_url={DEPENDENCIES_URL} />} />
+            <Route path={'/catalog/:system/:application/:deployableUnit/*'} element={<ApplicationPage backend_url={BACKEND_URL} dependency_url={DEPENDENCIES_URL} />} />
             <Route path={'/docs/:system/:application/:deployableUnit/*'} element={<CatDocsHomePage/>}/>
           </Routes>
-        </Container>
+        </main>
       </Box>
     </>
   );
