@@ -1,0 +1,14 @@
+kind: Component
+metadata:
+  description: CatDocs app builder
+  system: catcode
+  application: frontend
+  deployableUnit: app-builder
+  tags:
+  - react
+  - website
+spec:
+  type: frontend-plugin
+  lifecycle: development
+  owner: mw
+

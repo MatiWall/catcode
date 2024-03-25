@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
+const links = [
+    { text: 'Home', path: '/' },
+    { text: 'Catalog', path: '/catalog' },
+];
 
-const Sidebar = () => {
-    const links = [
-        { text: 'Home', path: '/' },
-        { text: 'Catalog', path: '/catalog' },
-    ];
+const Sidebar = ({links}) => {
+
 
     return (
         <Drawer
