@@ -1,6 +1,6 @@
 
 import { Container, CssBaseline, Box, Toolbar } from "@mui/material";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 
 
 
@@ -10,17 +10,15 @@ import { BACKEND_URL, DEPENDENCIES_URL } from "./apiConfig";
 import {CatDocsHomePage} from "@catcode/catdocs";
 
 
-const navbarHeight = 80;
-
 function BasePage() {
   // Adjust this value based on the actual height of your NavBar
 
   return (
-    <>
+    <Router>
       <Box sx={{ display: 'flex', lexGrow: 1 }}>
         <CssBaseline />
         <NavBar />
-        <SideBar />
+        {/*<SideBar links={[]}/>*/}
         <main style={{width: '100%', flexGrow: 1}}>
           <Toolbar />
           <Routes>
@@ -31,7 +29,7 @@ function BasePage() {
           </Routes>
         </main>
       </Box>
-    </>
+    </Router>
   );
 }
 

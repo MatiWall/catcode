@@ -8,11 +8,11 @@ import { CatalogPage, ApplicationPage } from "@catcode/catalog";
 import { BACKEND_URL, DEPENDENCIES_URL } from "./apiConfig";
 
 import { CatDocsHomePage } from "@catcode/catdocs";
-
+import BasePage from "./basePage";
 
 import { CreateApp } from "@catcode/app-builder";
 
-/*
+
 const options = {
   plugins: ['catdocs'],
   sidebar: (<SideBar
@@ -35,10 +35,10 @@ const options = {
   ),
   theme: theme
 };
-*/
+
 
 export default function App() {
  //console.log(options)
-  // <CreateApp options={options}/>;
-  return <div>Test</div>
+  return <CreateApp options={options}/>;
+  //return <BasePage />
 }

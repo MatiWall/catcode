@@ -1,15 +1,14 @@
 
-import { CssBaseline, ThemeProvider, Box, Toolbar } from "@mui/material"
+import * as React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+//import { AppConfigProvider } from "./context/appContext";
+import { CssBaseline, Box, Toolbar, ThemeProvider } from "@mui/material"
 
-import { AppConfigProvider } from "./context/appContext";
-import {BrowserRouter as Router} from 'react-router-dom';
+export default function CreateApp({ options }) {
 
-const CreateApp = ({ options }) => {
-  
     return (
         <>
-            {/*
-                <ThemeProvider theme={options.theme}>
+            <ThemeProvider theme={options.theme}>
                 <Router>
                     <Box sx={{ display: 'flex', flexGrow: 1 }}>
                         <CssBaseline />
@@ -20,11 +19,8 @@ const CreateApp = ({ options }) => {
                             {options.baseRoutes}
                         </main>
                     </Box>
-                    </Router>
-                </ThemeProvider>
-                */}
+                </Router>
+            </ThemeProvider>
         </>
     )
-}
-
-export default CreateApp;
+};
