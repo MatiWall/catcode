@@ -14,7 +14,16 @@ function addSpacesToCamelCase(input) {
     return capitalizedWords.join(' ');
   }
 
+  function splitAtOccurrence(str, delimiter, occurrence) {
+    const parts = str.split(delimiter);
+    const firstPart = parts.slice(0, occurrence).join(delimiter);
+    const secondPart = parts.slice(occurrence).join(delimiter);
+    return [firstPart, secondPart];
+}
+
+
 export {
     addSpacesToCamelCase,
-    capitalizeWords
+    capitalizeWords,
+    splitAtOccurrence
 };

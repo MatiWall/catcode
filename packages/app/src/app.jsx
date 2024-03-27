@@ -8,11 +8,22 @@ import {NavBar, SideBar, HomePage } from "@catcode/core-components";
 import {CatalogPage, ApplicationPage} from "@catcode/catalog";
 import { BACKEND_URL, DEPENDENCIES_URL } from "./apiConfig";
 import {CatDocsHomePage} from "@catcode/catdocs";
-
+import {createPlugin} from "@catcode/plugin-builder"
 import { CreateApp } from "@catcode/app-builder";
 
 const options = {
-  plugins: ['catdocs'],
+  plugins: [
+    {
+      annotation: 'catcode.io/catdocs-build',
+      type: 'catalogPlugin',
+      path: 'docs/',
+      name: 'Docs',
+      plugin: createPlugin(
+        <CatDocsHomePage></CatDocsHomePage>,
+        appConfig.plugins.catdocs
+      )
+    }
+  ],
   sidebar: (<SideBar
     links={
       [
@@ -28,7 +39,6 @@ const options = {
       <Route path={'/'} element={<HomePage />} />
       <Route path={'/catalog'} element={<CatalogPage/>} />
       <Route path={'/catalog/:system/:application/:deployableUnit/*'} element={<ApplicationPage />} />
-      <Route path={'/docs/:system/:application/:deployableUnit/*'} element={<CatDocsHomePage />} />
     </Routes>
   ),
   theme: theme

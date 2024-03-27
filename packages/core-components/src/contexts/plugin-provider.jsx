@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // Define the PluginContext
 const PluginContext = createContext();
@@ -6,10 +6,15 @@ const PluginContext = createContext();
 // Define a PluginProvider component to wrap your application
 export function PluginProvider({ children, plugins }) {
   // State to hold plugin data
-  const [plugins, setPlugins] = useState(plugins);
+  const [_plugins, setPlugins] = useState([]);
+
+  useEffect(() => {
+    setPlugins(plugins)
+  }, [plugins])
+
 
   return (
-    <PluginContext.Provider value={{ plugins}}>
+    <PluginContext.Provider value={ _plugins}>
       {children}
     </PluginContext.Provider>
   );
