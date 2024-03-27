@@ -3,21 +3,19 @@ import {useState, useEffect} from 'react';
 import CatalogTable from './applicationTable/table';
 
 import { CardHeader, Typography, CardContent, Divider, Button, Fab, Box, Grid } from '@mui/material';
-import { BaseCard, filterTableData } from '@catcode/core-components';
+import { BaseCard, filterTableData, useAppConfig } from '@catcode/core-components';
 import FilterBar from './filters/bar';
 import { useApiFetch } from '@catcode/core-api';
-/*
-   <Link to={`/catalog/${comp.metadata.system}/${comp.metadata.application}/${comp.metadata.deployableUnit}`}>
-                  {comp.metadata.deployableUnit}
-                </Link>
-*/
 
 
-export default function CatalogPage({ url }) {
+
+export default function CatalogPage() {
     const [catalogData, setCatalogData] = useState([]);
     const [filteredCatalogData, setFilteredCatalogData] = useState([])
     const [filters, setFilters] = useState({});
-    const apiFetch = useApiFetch(url);
+
+    const appConfig = useAppConfig();
+    const apiFetch = useApiFetch(appConfig.coreApi.url);
     
 
     useEffect(() => {
@@ -47,7 +45,6 @@ export default function CatalogPage({ url }) {
       }, []);
     
       useEffect(() => {
-        console.log(filters)
         const data = filterTableData(catalogData, filters);
         setFilteredCatalogData(data);
       }, [filters]);

@@ -1,13 +1,13 @@
 
 import * as React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-//import { AppConfigProvider } from "./context/appContext";
 import { CssBaseline, Box, Toolbar, ThemeProvider } from "@mui/material"
+import { AppConfigProvider } from '@catcode/core-components';
 
-export default function CreateApp({ options }) {
-
+export default function CreateApp({ options, appConfig }) {
     return (
-        <>
+        <AppConfigProvider appConfig={appConfig}>
+            
             <ThemeProvider theme={options.theme}>
                 <Router>
                     <Box sx={{ display: 'flex', flexGrow: 1 }}>
@@ -21,6 +21,6 @@ export default function CreateApp({ options }) {
                     </Box>
                 </Router>
             </ThemeProvider>
-        </>
+        </AppConfigProvider>
     )
 };

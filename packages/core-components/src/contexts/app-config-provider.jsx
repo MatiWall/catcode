@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 
 // Step 1: Create the Context
-const ConfigContext = createContext();
+const AppConfigContext = createContext();
 
 // Step 2: Create a Provider Component
 export const AppConfigProvider = ({ children, appConfig }) => {
@@ -9,9 +9,9 @@ export const AppConfigProvider = ({ children, appConfig }) => {
   const [config, setConfig] = useState(appConfig);
 
   return (
-    <ConfigContext.Provider value={{ config, setConfig }}>
+    <AppConfigContext.Provider value={config}>
       {children}
-    </ConfigContext.Provider>
+    </AppConfigContext.Provider>
   );
 };
 

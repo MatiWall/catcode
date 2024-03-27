@@ -9,11 +9,16 @@ import LinkComponent from './links';
 
 import {useApiFetch} from '@catcode/core-api';
 import {DependencyGraph} from '@catcode/dependencies';
-
-const Dependencies = ({url}) => {
-    const apiFetch = useApiFetch(url);
+import { useApplication } from './context';
+import { useAppConfig } from '@catcode/core-components';
+const Dependencies = () => {
+    const config = useAppConfig();
+    
+    const apiFetch = useApiFetch(config.plugins.dependencies.url);
     const { system, application, deployableUnit } = useParams();
     const [dependencies, setDependencies] = useState([]);
+
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -33,7 +38,8 @@ const Dependencies = ({url}) => {
 }
 
 
-const ApplicationOverviewPage = ({ config, dependency_url }) => {
+const ApplicationOverviewPage = () => {
+    const config = useApplication();
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -63,7 +69,7 @@ const ApplicationOverviewPage = ({ config, dependency_url }) => {
                 </Box>
             </Box>
             <Box style={{ 'width': '50%', 'marginLeft': '1rem' }}>
-                <Dependencies url={dependency_url} />
+                <Dependencies />
             </Box>
         </Box>
 

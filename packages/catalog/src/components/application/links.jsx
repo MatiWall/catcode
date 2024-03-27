@@ -10,8 +10,6 @@ import { IconSelector } from '@catcode/core-components';
 
 
 const LinkComponent = ({ links }) => {
-
-    console.log(links)
     return (
         <BaseCard>
             <CardHeader title='Links'>

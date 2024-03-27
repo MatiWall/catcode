@@ -6,16 +6,20 @@ import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 
 
-import { StatComponent, BaseCard } from '@catcode/core-components'
+import { StatComponent, BaseCard, useAppConfig } from '@catcode/core-components'
 import { useApiFetch } from '@catcode/core-api';
 import { DependencyGraph } from '@catcode/dependencies';
 
 
-export default function HomePage({ backend_url, dependency_url }) {
-    const apiFetch = useApiFetch(backend_url);
-    const apiFetchDependencies = useApiFetch(dependency_url);
+export default function HomePage() {
+    const appConfig = useAppConfig();
+    const apiFetch = useApiFetch(appConfig.coreApi.url);
+    const apiFetchDependencies = useApiFetch(appConfig.plugins.dependencies.url);
     const [dependencies, setDependencies] = useState([]);
     const [statistics, setStatistics] = useState({});
+
+
+
 
     useEffect(() => {
         const fetchData = async () => {

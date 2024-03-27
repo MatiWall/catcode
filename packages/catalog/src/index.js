@@ -1,7 +1,2 @@
-import ApplicationPage from "./components/application/application";
-import CatalogPage from "./components/page";
+export * from "./components";
 
-export {
-    CatalogPage,
-    ApplicationPage
-}

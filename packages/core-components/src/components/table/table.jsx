@@ -10,7 +10,6 @@ import Paper from '@mui/material/Paper';
 
 
 function createCatalogRow(row, columns, renderValue) {
-    console.log(renderValue)
     return (
       <TableRow key={Object.values(row).join(', ')} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
         {columns.map((col) => (

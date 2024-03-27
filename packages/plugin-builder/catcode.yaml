@@ -1,13 +1,12 @@
 kind: Component
 metadata:
-  description: CatDocs plugin handler. Takes a catalog entry and figures out what plugins are enabled to be shown in the ui.
+  description: CatDocs plugin builder
   system: catcode
   application: frontend
-  deployableUnit: plugin
+  deployableUnit: plugin-builder
   tags:
   - react
   - website
-  - plugin
 spec:
   type: frontend-plugin
   lifecycle: development

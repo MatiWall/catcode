@@ -32,7 +32,6 @@ const Item = ({ header, body }) => {
 
 
 const AboutComponent = ({ metadata, spec }) => {
-    console.log(metadata)
     return (
         <BaseCard>
             <CardHeader
