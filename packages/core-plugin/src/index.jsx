@@ -8,3 +8,6 @@ export {
     PluginConfigProvider
 
 }
+
+
+export * from './routing';

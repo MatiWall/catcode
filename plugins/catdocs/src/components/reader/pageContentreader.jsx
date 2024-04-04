@@ -14,17 +14,14 @@ import {
     addStyles,
     addMKDocsStaticCSS
 } from './transformers/tasks';
-import { splitAtOccurrence } from '@catcode/core-components';
 
 
 
 function PageContentReader(){
     const { system, application, deployableUnit} = useParams();
     const wildcard = useParams()["*"]
-
-    const [plugin, _path] = splitAtOccurrence(wildcard, '/', 1);
     
-    const path = (_path ? `/${_path}` : '') 
+    const path = (wildcard ? `/${wildcard}` : '') 
     
     const [htmlContent, setHTMLContent] = useState('');
     const baseUrl = `/docs/${system}/${application}/${deployableUnit}`;
