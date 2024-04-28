@@ -17,7 +17,7 @@ const ShadowDom = ({ children }) => {
     })
 
 
-    return <div ref={ref}></div>;
+    return (<div ref={ref}></div>);
 };
 
 export default ShadowDom;

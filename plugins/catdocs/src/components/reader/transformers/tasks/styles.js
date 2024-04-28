@@ -1,4 +1,4 @@
-import { alpha, lighten } from '@material-ui/core';
+import { alpha, lighten } from '@mui/material/styles';
 
 export default (theme) => `
 /*==================  Variables  ==================*/

@@ -1,6 +1,6 @@
 
 
-const useApiFetch = (defaulBasetUrl = process.env.REACT_APP_BACKEND_URL) => {
+const useApiFetch = (defaulBasetUrl = import.meta.env.REACT_APP_BACKEND_URL) => {
 
     const apiFetch = async (url, method = 'GET', body = null) => {
         // Perform the API request using fetch

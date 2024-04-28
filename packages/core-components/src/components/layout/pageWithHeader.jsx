@@ -4,8 +4,9 @@ import { AppBar, Tabs, Tab, Container, Typography } from '@mui/material';
 import {theme} from '@catcode/theme'
 
 
-const PageWithHeader = ({pages}) => {
+const PageWithHeader = ({pages, basePath}) => {
   const location = useLocation();
+ 
 
   // Function to handle header item click
   const handleItemClick = (path) => {
@@ -24,9 +25,9 @@ const PageWithHeader = ({pages}) => {
             <Tab
               key={page.url}
               label={page.name}
-              value={page.url}
+              value={basePath + page.url}
               component={Link}
-              to={page.url} // Concatenate base path with relative path
+              to={page.url} 
               onClick={() => handleItemClick(page.url)} 
             />
           ))}

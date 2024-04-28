@@ -16,7 +16,7 @@ export function PluginConfigProvider({ config, children }) {
 export function usePluginConfig() {
   const context = useContext(PluginContext);
   if (!context) {
-    throw new Error('usePluginConfig must be used within a PluginProvider');
+    throw new Error('usePluginConfig must be used within a PluginConfigProvider');
   }
-  return context;
+  return context.config;
 }

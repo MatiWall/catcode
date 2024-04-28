@@ -2,7 +2,12 @@
   "name": "catcode-frontend",
   "version": "1.0.0",
   "private": true,
-  "workspaces": { "packages": ["packages/*", "plugins/*"]},
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "plugins/*"
+    ]
+  },
   "scripts": {
     "start": "yarn workspace app start",
     "build": "yarn workspace app build",

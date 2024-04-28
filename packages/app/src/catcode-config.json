@@ -1,14 +1,14 @@
 {
 
   "coreApi": {
-    "url": "http://127.0.0.1:8000/"
+    "url": "http://catcode.backend.core-api.mw/"
   },
   "plugins": {
     "catdocs": {
-      "url": "http://127.0.0.1:8002"
+      "url": "http://catcode.backend.catdocs.mw"
     },
     "dependencies": {
-      "url": "http://127.0.0.1:8001/"
+      "url": "http://catcode.backend.dependencies.mw"
     }
   }
 }

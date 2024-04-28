@@ -13,7 +13,7 @@ function buildPages(config, catalog) {
         { 
             url: '', 
             name: 'Overview', 
-            component: <ApplicationOverviewPage dependency_url={config.plugins.dependencies.url} />
+            component: <ApplicationOverviewPage />
         },
         //{ url: 'docs/', name: 'Docs', component: <div>test page</div> },
     ];
@@ -42,7 +42,7 @@ function buildPages(config, catalog) {
             pages.push({
                 url: matchingPlugin.path, // Assuming path is specified in the plugin
                 name: matchingPlugin.name, // Use annotation as the name
-                component: matchingPlugin.plugin // Use the plugin component
+                component: <matchingPlugin.plugin /> // Use the plugin component
             });
         }
     }
@@ -51,19 +51,20 @@ function buildPages(config, catalog) {
 
 
 export default function ApplicationPage() {
-    const basePath = useLocation().pathname;
+
     const { system, application, deployableUnit} = useParams();
+    const basePath = `/catalog/${system}/${application}/${deployableUnit}/`;
 
     const config = useAppConfig();
 
-    const apiFetch = useApiFetch(config.coreApi.url);
+    const apiFetch = useApiFetch(import.meta.env.VITE_CORE_API_URL);
 
     const [catalog, setCatalog] = useState({});
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { response, data } = await apiFetch(`catalog/${system}/${application}/${deployableUnit}`, 'GET');
+                const { response, data } = await apiFetch(basePath, 'GET');
                 setCatalog(data); // Assuming the API returns an array of catalog items
             } catch (error) {
                 console.error('Error fetching catalog data:', error);

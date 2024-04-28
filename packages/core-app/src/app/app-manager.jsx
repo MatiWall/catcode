@@ -15,27 +15,6 @@ class AppManger {
 
     }
 
-    appProvider() {
-        return (
-            <AppConfigProvider appConfig={appConfig}>
-            <PluginProvider plugins={this.plugins}>
-                <ThemeProvider theme={this.theme}>
-                    <Router>
-                        <Box sx={{ display: 'flex', flexGrow: 1 }}>
-                            <CssBaseline />
-                            {this.navbar}
-                            {this.sidebar}
-                            <main style={{ width: '100%', flexGrow: 1 }}>
-                                <Toolbar />
-                                {this.routes}
-                            </main>
-                        </Box>
-                    </Router>
-                </ThemeProvider>
-            </PluginProvider>
-        </AppConfigProvider>
-        );
-    }
 
     createRoot(appConfig){
         

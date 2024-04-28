@@ -5,9 +5,13 @@ export default function createPlugin(
     config
 ){
     
-    return (
+    const Plugin = () => {
+        return (
         <PluginConfigProvider config={config}>
             {plugin}
         </PluginConfigProvider>
-    );
+        )
+    }
+
+    return Plugin;
 }

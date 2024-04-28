@@ -15,13 +15,13 @@ export default function CatalogPage() {
     const [filters, setFilters] = useState({});
 
     const appConfig = useAppConfig();
-    const apiFetch = useApiFetch(appConfig.coreApi.url);
+    const apiFetch = useApiFetch(appConfig.coreApi);
     
 
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const { response, data } = await apiFetch('catalog', 'GET');
+            const { response, data } = await apiFetch('/catalog', 'GET');
             
             const transformedData = data.apps.map((comp) => ({
               deployableUnit: comp.metadata.deployableUnit,

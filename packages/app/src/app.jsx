@@ -1,26 +1,37 @@
 import { theme } from '@catcode/theme'
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 
-import appConfig from './catcode-config.json'
-
-
 import { NavBar, SideBar, HomePage } from "@catcode/core-components";
 import { CatalogPage, ApplicationPage } from "@catcode/catalog";
-import { BACKEND_URL, DEPENDENCIES_URL } from "./apiConfig";
 import { CatDocsHomePage } from "@catcode/catdocs";
 import { createPlugin, CatDocsRoutes } from "@catcode/core-plugin"
 import { CreateApp, AppManager } from "@catcode/core-app";
+import { Dependencies } from '@catcode/dependencies';
+
+const appConfig = {
+  coreApi: import.meta.env.VITE_CORE_API_URL
+}
 
 const options = {
   plugins: [
     {
       annotation: 'catcode.io/catdocs-build',
       type: 'catalogPlugin',
-      path: 'docs/*',
+      path: 'docs/',
       name: 'Docs',
       plugin: createPlugin(
-        <CatDocsHomePage></CatDocsHomePage>,
-        appConfig.plugins.catdocs
+        <CatDocsHomePage/>,
+        {url: import.meta.env.VITE_CATDOCS_URL}
+      )
+    },
+    {
+      annotation: 'catcode.io/dependencies',
+      type: 'catalogPlugin',
+      path: 'dependencies/',
+      name: 'Dependencies',
+      plugin: createPlugin(
+          <Dependencies/>,
+        {url: import.meta.env.VITE_DEPENDENCIES}
       )
     }
   ],

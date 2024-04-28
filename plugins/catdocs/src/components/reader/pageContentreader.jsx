@@ -1,10 +1,8 @@
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 
-
 import ShadowDom from "./shadowdom";
 import transform from "./transformers/transformer"
-import { catdocsApiUrl } from './../../config';
 
 import { 
     removeMKDocsHeader, 
@@ -15,7 +13,7 @@ import {
     addMKDocsStaticCSS
 } from './transformers/tasks';
 
-
+import {usePluginConfig} from '@catcode/core-plugin'
 
 function PageContentReader(){
     const { system, application, deployableUnit} = useParams();
@@ -25,7 +23,12 @@ function PageContentReader(){
     
     const [htmlContent, setHTMLContent] = useState('');
     const baseUrl = `/docs/${system}/${application}/${deployableUnit}`;
-    console.log(catdocsApiUrl + baseUrl + path);
+    
+    const config = usePluginConfig();
+    
+    const catdocsApiUrl = config.url;
+    console.log(config),
+    console.log(config.url)
     useEffect(() => {
         fetch(catdocsApiUrl + baseUrl + path)
             .then(response => {
