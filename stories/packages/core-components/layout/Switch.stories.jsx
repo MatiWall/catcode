@@ -1,9 +1,9 @@
 import React from 'react'
-import { RoutingSwitch, SwitchItem } from "../../../packages/core-components/src/components/layout/switch"
+import { RoutingSwitch, SwitchItem } from "@catcode/core-components/src/components/layout/switch"
 import {Route, Routes, Outlet, useLocation } from 'react-router-dom'
 
 export default {
-    title: 'RoutingSwitch'
+    title: 'packages/core-components/layout/RoutingSwitch'
 }
 
 export const Item = () => (

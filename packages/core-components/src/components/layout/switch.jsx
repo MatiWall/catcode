@@ -11,7 +11,6 @@ const handleItemClick = (path) => {
 
 const RoutingSwitch = ({ children }) => {
     const location = useLocation();
-    console.log(location)
     return (
             <Tabs value={location.pathname}>
                 {children}

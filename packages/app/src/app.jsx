@@ -7,34 +7,23 @@ import { CatDocsHomePage } from "@catcode/catdocs";
 import { createPlugin, CatDocsRoutes } from "@catcode/core-plugin"
 import { CreateApp, AppManager } from "@catcode/core-app";
 import { Dependencies } from '@catcode/dependencies';
+import CatalogIndecPage from './components/catalog/page';
 
 const appConfig = {
   coreApi: import.meta.env.VITE_CORE_API_URL
 }
 
-const options = {
-  plugins: [
-    {
-      annotation: 'catcode.io/catdocs-build',
-      type: 'catalogPlugin',
-      path: 'docs/',
-      name: 'Docs',
-      plugin: createPlugin(
+const DependenciesPlugin = createPlugin(
+  <Dependencies/>,
+{url: import.meta.env.VITE_DEPENDENCIES}
+)
+
+const CatDocsPlugin = createPlugin(
         <CatDocsHomePage/>,
         {url: import.meta.env.VITE_CATDOCS_URL}
       )
-    },
-    {
-      annotation: 'catcode.io/dependencies',
-      type: 'catalogPlugin',
-      path: 'dependencies/',
-      name: 'Dependencies',
-      plugin: createPlugin(
-          <Dependencies/>,
-        {url: import.meta.env.VITE_DEPENDENCIES}
-      )
-    }
-  ],
+
+const options = {
   sidebar: (<SideBar
     links={
       [
@@ -50,7 +39,11 @@ const options = {
     <Routes>
       <Route path={'/'} element={<HomePage />} />
       <Route path={'/catalog'} element={<CatalogPage />} />
-      <Route path={'/catalog/:system/:application/:deployableUnit/*'} element={<ApplicationPage />} />
+      <Route path={'/catalog/:system/:application/:deployableUnit/'} element={<CatalogIndecPage />}>
+        <Route path={''} element={<ApplicationPage/>} />
+        <Route path={'docs/*'} element={<CatDocsPlugin/>} />
+        <Route path={'dependencies'} element={<DependenciesPlugin/>} />
+      </Route>
     </Routes>
     //</CatDocsRoutes>
   ),

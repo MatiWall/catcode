@@ -21,7 +21,6 @@ class AppManger {
         const AppRoot = () => {
             return (
                 <AppConfigProvider appConfig={appConfig}>
-                <PluginProvider plugins={this.plugins}>
                     <ThemeProvider theme={this.theme}>
                         <Router>
                             <Box sx={{ display: 'flex', flexGrow: 1 }}>
@@ -35,7 +34,6 @@ class AppManger {
                             </Box>
                         </Router>
                     </ThemeProvider>
-                </PluginProvider>
             </AppConfigProvider>
             );
         }

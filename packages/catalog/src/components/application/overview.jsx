@@ -38,7 +38,7 @@ const ApplicationOverviewPage = () => {
                         }}
                     >
                         {config?.metadata?.links ? (
-                            <LinkComponent links={config.metadata.links.filter(link => !link.icon)} />
+                            <LinkComponent links={config?.metadata?.links.filter(link => !link.icon)} />
                         ) : null}
                     </Box>
                 </Box>

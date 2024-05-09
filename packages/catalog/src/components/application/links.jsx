@@ -5,11 +5,23 @@ import { Link } from 'react-router-dom';
 import BaseCard from '../../../../core-components/src/components/block';
 
 import { IconSelector } from '@catcode/core-components';
+import { useApplication } from './context';
 
 
 
+const EntityLink = ({icon, url, title}) => (
+    <Grid item xs={2}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+            <IconSelector iconName={icon} />
+            <a href={url} target="_blank" rel="noopener">{title}</a>
+        </div>
+    </Grid>
+)
 
-const LinkComponent = ({ links }) => {
+const EntityLinks = () => {
+    const config = useApplication()
+    const links = config?.metadata?.links || []
+
     return (
         <BaseCard>
             <CardHeader title='Links'>
@@ -18,12 +30,7 @@ const LinkComponent = ({ links }) => {
             <CardContent>
                 <Grid container spacing={2} sx={{ display: 'flex', flexDirection: 'row' }}>
                     {links.map((link) => (
-                        <Grid item xs={12}>
-                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                <IconSelector iconName={'internet'} />
-                                <a href={link.url} target="_blank" rel="noopener">{link.title}</a>
-                            </div>
-                        </Grid>
+                        <EntityLink icon={link.icon} title={link.title} url={link.url}/>
                     ))}
                 </Grid>
 
@@ -32,4 +39,4 @@ const LinkComponent = ({ links }) => {
     );
 };
 
-export default LinkComponent;
+export default EntityLinks;

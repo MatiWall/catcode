@@ -17,6 +17,8 @@ import { FaGithub } from "react-icons/fa";
 import BaseCard from '../../../../core-components/src/components/block';
 
 import { IconSelector } from '@catcode/core-components'
+import { useApplication } from './context';
+
 
 
 const Item = ({ header, body }) => {
@@ -31,7 +33,12 @@ const Item = ({ header, body }) => {
 }
 
 
-const AboutComponent = ({ metadata, spec }) => {
+const About = () => {
+    const entity = useApplication();
+    console.log(entity)
+    const metadata = entity?.metadata || {};
+    const spec = entity?.spec || {};
+
     return (
         <BaseCard>
             <CardHeader
@@ -39,22 +46,7 @@ const AboutComponent = ({ metadata, spec }) => {
                 subheader={
                     <Typography variant="body1" color="textSecondary" component="div">
                         <nav>
-
-                            {metadata?.links.filter((link => link?.icon)).map((link => (
-                                <Link
-                                    href={link.url}
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    <IconSelector iconName={link.icon} />
-                                    <Typography>{link.title}</Typography>
-                                </Link>
-
-                            )))}
-
-
-
-
+                            Add links here
                         </nav>
                     </Typography>
                 }
@@ -71,7 +63,7 @@ const AboutComponent = ({ metadata, spec }) => {
                         <Item header='Lifecycle' body={spec?.lifecycle} />
                     </Grid>
                     <Grid item xs={12}>
-                        <Item header='Tags' body={metadata?.tags.map((tag) => <Chip label={tag} />)} />
+                        <Item header='Tags' body={metadata?.tags && metadata?.tags.map((tag) => <Chip label={tag} />)} />
                     </Grid>
                 </Grid>
             </CardContent>
@@ -79,4 +71,4 @@ const AboutComponent = ({ metadata, spec }) => {
     );
 };
 
-export default AboutComponent;
+export default About;
