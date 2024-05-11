@@ -3,7 +3,6 @@ import { AppBar, Tabs, Tab } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 
 const handleItemClick = (path) => {
-    console.log(path)
     
     return <Navigate to={path}/>;
   };
@@ -18,13 +17,13 @@ const RoutingSwitch = ({ children }) => {
     );
 };
 
-const SwitchItem = ({ label, value, active=true }) => {
-    
+const Item = ({ label, value, active=true }) => {
+    const fullPath = useLocation().pathname +'/'+ value;
     return (
         active && (
         <Tab
             label={label}
-            value={value}
+            value={fullPath}
             component={Link}
             to={value}
             onClick={() => handleItemClick(value)} 
@@ -33,4 +32,6 @@ const SwitchItem = ({ label, value, active=true }) => {
     )
 }
 
-export { RoutingSwitch, SwitchItem };
+RoutingSwitch.Item = Item;
+
+export default RoutingSwitch;

@@ -4,7 +4,9 @@ import Dependencies from "./components/deppendencies";
 
 const DEPENDENCIES_ANNOTATION = 'catcode.io/dependencies'
 
-const isDependenciesAvailable = (entity) => Boolean(entity?.metadata?.annotation?.[DEPENDENCIES_ANNOTATION])
+function isDependenciesAvailable(entity){ 
+    return Boolean(entity?.metadata?.annotations?.[DEPENDENCIES_ANNOTATION])
+}
 
 export {
     DependencyGraph,

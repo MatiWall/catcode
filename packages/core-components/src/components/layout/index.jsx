@@ -1,8 +1,7 @@
 import PageWithHeader from "./pageWithHeader";
-import { RoutingSwitch, SwitchItem } from "./switch";
+import RoutingSwitch from "./switch";
 
 export {
     PageWithHeader,
     RoutingSwitch,
-    SwitchItem
 }; 

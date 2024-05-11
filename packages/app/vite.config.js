@@ -13,11 +13,11 @@ export default defineConfig(({mode}) => {
     'import.meta.env.SOME_KEY': JSON.stringify(env.SOME_KEY)
   },
   optimizeDeps: {
-    include: ['@catcode/catalog', '@catcode/core-api', '@catcode/core-app', '@catcode/core-components', '@catcode/core-plugin', '@catcode/dependencies', '@catcode/theme', '@catcode/catdocs'],
+    include: ['@catcode/catalog', '@catcode/core-api', '@catcode/core-app', '@catcode/core-components', '@catcode/core-plugin', '@catcode/theme'],
   },
   build: {
     commonjsOptions: {
-      include: ['@catcode/catalog', '@catcode/core-api', '@catcode/core-app', '@catcode/core-components', '@catcode/core-plugin', '@catcode/dependencies', '@catcode/theme', '@catcode/catdocs', /node_modules/],
+      include: ['@catcode/catalog', '@catcode/core-api', '@catcode/core-app', '@catcode/core-components', '@catcode/core-plugin','@catcode/theme', '@catcode/catdocs', /node_modules/],
     },
   },
 }

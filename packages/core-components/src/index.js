@@ -12,7 +12,7 @@ import {filterData as filterTableData} from "./components/table/filters"
 import { addSpacesToCamelCase, capitalizeWords } from "./utils/text";
 
 import IconSelector from './components/icons'
-import { RoutingSwitch, PageWithHeader, SwitchItem } from "./components/layout";
+import { RoutingSwitch, PageWithHeader } from "./components/layout";
 
 export {
     BaseCard,
@@ -22,7 +22,6 @@ export {
     Sidebar as SideBar,
     PageWithHeader,
     RoutingSwitch,
-    SwitchItem,
 
     DropDown,
     DropDownMulti,

@@ -1,21 +1,23 @@
 import { useApplication, ApplicationProvider } from "@catcode/catalog"
 import { isCatDocsAvailable } from "@catcode/catdocs"
 import { useApiFetch } from "@catcode/core-api"
-import { RoutingSwitch, SwitchItem, useAppConfig } from "@catcode/core-components"
+import { RoutingSwitch, useAppConfig } from "@catcode/core-components"
 import { isDependenciesAvailable } from "@catcode/dependencies"
 import { useState, useEffect } from "react"
 import {Outlet, useParams} from 'react-router-dom'
+
 
 const IndecPage = () => {
 
     
     const entity = useApplication();
+
     return (
         <>
             <RoutingSwitch>
-                <SwitchItem key={'/'} label={'Overview'} value={'/'}></SwitchItem>
-                <SwitchItem key={'dependencies'} label={'Dependencies'} value={'/dependencies'} active={isDependenciesAvailable(entity)}></SwitchItem>
-                <SwitchItem key={'docs'} label={'Docs'} value={'docs/*'} active={isCatDocsAvailable(entity)}></SwitchItem>
+                <RoutingSwitch.Item key={'/'} label={'Overview'} value={''}></RoutingSwitch.Item>
+                <RoutingSwitch.Item key={'dependencies'} label={'Dependencies'} value={'dependencies'} active={isDependenciesAvailable(entity)}></RoutingSwitch.Item>
+                <RoutingSwitch.Item key={'docs'} label={'Docs'} value={'docs/*'} active={isCatDocsAvailable(entity)}></RoutingSwitch.Item>
             </RoutingSwitch>
             <Outlet/>
         </>
@@ -28,7 +30,7 @@ const CatalogIndecPage = () => {
 
     const config = useAppConfig();
 
-    const apiFetch = useApiFetch(import.meta.env.VITE_CORE_API_URL);
+    const apiFetch = useApiFetch(config.coreApi);
 
     const [catalog, setCatalog] = useState({});
 

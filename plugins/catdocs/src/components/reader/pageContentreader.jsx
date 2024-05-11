@@ -27,8 +27,8 @@ function PageContentReader(){
     const config = usePluginConfig();
     
     const catdocsApiUrl = config.url;
-    console.log(config),
-    console.log(config.url)
+  
+
     useEffect(() => {
         fetch(catdocsApiUrl + baseUrl + path)
             .then(response => {

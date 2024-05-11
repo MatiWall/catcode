@@ -35,7 +35,7 @@ const Item = ({ header, body }) => {
 
 const About = () => {
     const entity = useApplication();
-    console.log(entity)
+
     const metadata = entity?.metadata || {};
     const spec = entity?.spec || {};
 
