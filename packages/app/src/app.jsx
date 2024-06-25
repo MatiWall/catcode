@@ -12,6 +12,7 @@ import CatalogIndecPage from './components/catalog/page';
 
 
 const coreApiUrl = import.meta.env.VITE_CORE_API_URL;
+console.log(coreApiUrl)
 const appConfig = {
   coreApi: coreApiUrl
 }

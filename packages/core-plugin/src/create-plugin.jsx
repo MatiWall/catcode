@@ -10,11 +10,9 @@ export default function createPlugin(
     const Plugin = () => {
 
         return (
-            <div>
-                <PluginConfigProvider config={config}>
-                    {plugin}
-                </PluginConfigProvider>
-            </div>
+            <PluginConfigProvider config={config}>
+                {plugin}
+            </PluginConfigProvider>
         )
     }
 

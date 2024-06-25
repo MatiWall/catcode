@@ -3,7 +3,7 @@
 const selectors = [
     'div[data-md-component="skip"]',
     'div[data-md-component="announce"]',
-    'input[data-md-toggle="drawer"]',
+    //'input[data-md-toggle="drawer"]',
     'input[data-md-toggle="search"]',
 ]; 
 

@@ -1,0 +1,20 @@
+kind: Component
+metadata:
+  description: CatCode frontend app
+  system: catcode
+  application: frontend
+  deployableUnit: app
+  tags:
+  - react
+  - website
+  version: 0.1.0
+spec:
+  type: frontend-plugin
+  lifecycle: development
+  owner: mw
+  dependecies:
+  - catcode.backend.catdocs
+  - catcode.backend.dependencies
+  - catcode.backend.coreapi
+
+

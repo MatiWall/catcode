@@ -17,7 +17,7 @@ const IndecPage = () => {
             <RoutingSwitch>
                 <RoutingSwitch.Item key={'/'} label={'Overview'} value={''}></RoutingSwitch.Item>
                 <RoutingSwitch.Item key={'dependencies'} label={'Dependencies'} value={'dependencies'} active={isDependenciesAvailable(entity)}></RoutingSwitch.Item>
-                <RoutingSwitch.Item key={'docs'} label={'Docs'} value={'docs/*'} active={isCatDocsAvailable(entity)}></RoutingSwitch.Item>
+                <RoutingSwitch.Item key={'docs'} label={'Docs'} value={'docs/'} active={isCatDocsAvailable(entity)}></RoutingSwitch.Item>
             </RoutingSwitch>
             <Outlet/>
         </>
