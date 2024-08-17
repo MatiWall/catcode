@@ -7,7 +7,7 @@ metadata:
   tags:
   - react
   - website
-  version: 0.1.0
+  version: 0.1.1
 spec:
   type: frontend-plugin
   lifecycle: development
@@ -16,5 +16,3 @@ spec:
   - catcode.backend.catdocs
   - catcode.backend.dependencies
   - catcode.backend.coreapi
-
-
