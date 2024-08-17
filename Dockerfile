@@ -4,14 +4,11 @@ FROM node:latest AS builder
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and yarn.lock to install dependencies
-COPY packages/app/package.json yarn.lock package.json ./
+# Copy the rest of the application code
+COPY . .
 
 # Install dependencies
 RUN yarn install
-
-# Copy the rest of the application code
-COPY . .
 
 # Build the React app
 RUN yarn workspace app build
