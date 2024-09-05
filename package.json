@@ -32,5 +32,6 @@
     "@storybook/test": "^8.0.9",
     "prop-types": "^15.8.1",
     "storybook": "^8.0.9"
-  }
+  },
+  "packageManager": "yarn@4.4.1"
 }

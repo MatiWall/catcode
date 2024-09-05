@@ -1,5 +1,5 @@
 import React from 'react'
-import { RoutingSwitch, SwitchItem } from "@catcode/core-components/src/components/layout/switch"
+import { RoutingSwitch} from "@catcode/core-components"
 import {Route, Routes, Outlet, useLocation } from 'react-router-dom'
 
 export default {
@@ -7,7 +7,7 @@ export default {
 }
 
 export const Item = () => (
-    <SwitchItem key={'/test'} label={'Test'} path={'/'} active={true}></SwitchItem>
+    <RoutingSwitch.Item key={'/test'} label={'Test'} path={'/'} active={true}></RoutingSwitch.Item>
 )
 
 
@@ -15,10 +15,10 @@ export const Switch = () => {
     const location = useLocation();
     return (<>
     <RoutingSwitch>
-        <SwitchItem key={'/'} label={'Test'} value={'/'}></SwitchItem>
-        <SwitchItem key={'/test2'} label={'Test2'} value={'/test2'}></SwitchItem>
-        <SwitchItem key={'/test3'} label={'False'} value={'/test3'} active={false}></SwitchItem>
-        <SwitchItem key={'/test4'} label={'Test 4'} value={'/test4'} active={true}></SwitchItem>
+        <RoutingSwitch.Item key={'/'} label={'Test'} value={'/'}></RoutingSwitch.Item >
+        <RoutingSwitch.Item  key={'/test2'} label={'Test2'} value={'/test2'}></RoutingSwitch.Item >
+        <RoutingSwitch.Item  key={'/test3'} label={'False'} value={'/test3'} active={false}></RoutingSwitch.Item >
+        <RoutingSwitch.Item  key={'/test4'} label={'Test 4'} value={'/test4'} active={true}></RoutingSwitch.Item >
     </RoutingSwitch>
     </>
     )
