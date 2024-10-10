@@ -1,22 +1,38 @@
 import {useState, useEffect} from 'react';
 
-import CatalogTable from './applicationTable/table';
+import CatalogTable from './table';
 
 import { CardHeader, Typography, CardContent, Divider, Button, Fab, Box, Grid } from '@mui/material';
 import { BaseCard, filterTableData, useAppConfig } from '@catcode/core-components';
-import FilterBar from './filters/bar';
-import { useApiFetch } from '@catcode/core-api';
+import FilterBar from '../filters/bar';
+import { coreAPI } from '@catcode/core-api';
 
 
 
-export default function CatalogPage() {
+export default function EntityPage() {
     const [catalogData, setCatalogData] = useState([]);
     const [filteredCatalogData, setFilteredCatalogData] = useState([])
     const [filters, setFilters] = useState({});
 
-    const appConfig = useAppConfig();
-    const apiFetch = useApiFetch(appConfig.coreApi);
+    const core_api = coreAPI();
+
+    useEffect(() => {
+
+      async function getEntities(){
+        const resources = await core_api.getResources('systems');
+        console.log(resources);
+
+      };
+
+      getEntities();
+
+    });
     
+    
+    
+
+    /*
+    const apiFetch = useApiFetch(appConfig.coreApi);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,7 +56,7 @@ export default function CatalogPage() {
             // Handle error appropriately, e.g., show a message to the user
           }
         };
-    
+        
         fetchData();
       }, []);
     
@@ -48,17 +64,18 @@ export default function CatalogPage() {
         const data = filterTableData(catalogData, filters);
         setFilteredCatalogData(data);
       }, [filters]);
- 
+      */
     return (
         <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
-                <FilterBar 
+               {/* <FilterBar 
                 onChange={setFilters}
                 systems={[... new Set(catalogData.map((row) => row.system))]}
                 lifecycles={[... new Set(catalogData.map((row) => row.lifecycle))]}
                 types={[... new Set(catalogData.map((row) => row.type))]}
                 tags={[...new Set(catalogData.flatMap((row) => row.tags))]}
                 />
+                */}
             </Grid>
             <Grid item xs={12} md={9}>
                 <BaseCard>

@@ -1,12 +1,12 @@
-import ApplicationPage from './application/application';
-import { useApplication, ApplicationProvider } from './application/context';
-import CatalogPage from './catalog';
+import ApplicationPage from './component/application';
+import { useApplication, ApplicationProvider } from './component/context';
+import EntityPage from './entity/entities-page';
 import FilterBar from './filters/bar'
 
 export {
     FilterBar,
     ApplicationPage,
-    CatalogPage,
+    EntityPage,
     useApplication,
     ApplicationProvider
 };

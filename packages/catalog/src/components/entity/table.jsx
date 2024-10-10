@@ -10,7 +10,7 @@ import {
 } from '@catcode/core-components';
 
 
-export default function CatalogTable({data}) {
+export default function EntityTable({data}) {
 
   let columns = [];
 

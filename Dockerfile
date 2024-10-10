@@ -1,6 +1,7 @@
 # Stage 1: Build the React app
-FROM node:latest AS builder
+FROM node:16 AS builder
 
+RUN corepack enable
 # Set the working directory in the container
 WORKDIR /app
 

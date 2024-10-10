@@ -23,3 +23,15 @@ yarn install
 yarn storybook
 ```
 
+
+```mermaid
+graph TD;
+    A[App] --> B[Core API];
+    B --> E[etcd];
+    F[GitOpsRecnciliator] --> B
+    A --> C[CatDocs];
+    C --> B
+    D --> B
+    A --> D[Dependencies];
+
+```
